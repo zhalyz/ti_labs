@@ -87,7 +87,6 @@ def magic(table):
     print(shag,' ', a+1,' ',b+1,' ',masB,'  ', masA,' ', masB[an],'/',shag,'  ',masA[bn],'/',shag,' ',round(epselen,4))
 
     print((constKa+constKb)/2)
-a
     shag+=1
 
 
