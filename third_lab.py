@@ -110,8 +110,9 @@ def gameTwo(game):
 
 
 def main():
-    eps = 0
-    cross = np.array([[(1, 1), (1-eps, 2)], [(2, 1-eps), (0, 0)]])
+    eps1 = 0.3
+    eps2 = 0.7
+    cross = np.array([[(1, 1), (1-eps1, 2)], [(2, 1-eps2), (0, 0)]])
     family = np.array([[(4, 1), (0, 0)], [(0, 0), (1, 4)]])
     prison = np.array([[(-5, -5), (0, -10)], [(-10, 0), (-1, -1)]])
     randomMatrix = np.array([[(randint(-50, 50), randint(-50, 50)) for x in range(10)]
