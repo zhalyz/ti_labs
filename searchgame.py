@@ -27,7 +27,7 @@ def genPoints(countPoints, a):
 def checkResult(aPoints, bPoint, R):
     result = False
     for a in aPoints:
-        if np.linalg.norm(a-bPoint) < R:
+        if np.linalg.norm(a-bPoint) <= R:
             result = True
             break
     return result
