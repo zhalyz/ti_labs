@@ -1,15 +1,19 @@
 #!/usr/bin/python3
 import numpy as np
 import math
+import mpl_toolkits.mplot3d
+import matplotlib.pyplot as pp
 
 def fibonacci_sphere(samples=1):
 
     points = []
     phi = math.pi * (3. - math.sqrt(5.))  # golden angle in radians
-
+    
     for i in range(samples):
         y = 1 - (i / float(samples - 1)) * 2  # y goes from 1 to -1
-        
+
+
+
         radius = math.sqrt(1 - y * y)  # radius at y
         
         theta = phi * i  # golden angle increment
@@ -22,8 +26,8 @@ def fibonacci_sphere(samples=1):
     return points
 
 def genCubePoints(countPoints, a):
-    a = 5
-    mas = fibonacci_sphere(5)
+    mas = fibonacci_sphere(countPoints)
+    
     
 
     randomAngle = np.random.uniform(0, 90)
@@ -42,12 +46,20 @@ def genCubePoints(countPoints, a):
         x.append(m[0])
         y.append(m[1])
         z.append(m[2])
+    pp.figure().add_subplot(111, projection='3d').scatter(x, y, z)
+    
     
 
     matrix = xRotation.dot(np.stack([x,y,z]))
     matrix = yRotation.dot(matrix)
     matrix = zRotation.dot(matrix)
-
+    
+    
+    
+    x = matrix[0]
+    y = matrix[1]
+    z = matrix[2]
+    pp.figure().add_subplot(111, projection='3d').scatter(x, y, z)
     finaleMatrix = np.empty((0,3))
 
     for j in range(len(matrix[0])):
@@ -71,7 +83,8 @@ def genCubePoints(countPoints, a):
         x.append(row[0])
         y.append(row[1])
         z.append(row[2])
-    
+    pp.figure().add_subplot(111, projection='3d').scatter(x, y, z)
+    pp.show()
     return finaleMatrix
 
 def genPoints(countPoints, a):
