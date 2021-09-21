@@ -1,3 +1,4 @@
+curl --location --request GET 'http://downloads.scylladb.com.s3.amazonaws.com/?delimiter=/&prefix=downloads/scylla/relocatable/scylladb-4.4/'
 OUTPUT_DIR='/root/scylladb/'
 if [[ -d $OUTPUT_DIR ]]; then
   strings=$(cat test.xml |
